@@ -59,6 +59,7 @@ bool pyopencv_to(PyObject *o, cv::flann::IndexParams& p, const ArgInfo& info)
         int int_value = 0;
         if (pyopencv_to(value_obj, int_value, key_arg_info))
         {
+            std::cout << "int key: " << key << std::endl;
             if (key == "algorithm")
             {
                 p.setAlgorithm(int_value);
@@ -74,14 +75,16 @@ bool pyopencv_to(PyObject *o, cv::flann::IndexParams& p, const ArgInfo& info)
         double flt_value = 0.0;
         if (pyopencv_to(value_obj, flt_value, key_arg_info))
         {
-            if (key == "eps")
-            {
-                p.setFloat(key, static_cast<float>(flt_value));
-            }
-            else
-            {
-                p.setDouble(key, flt_value);
-            }
+            std::cout << "flt key: " << key << std::endl;
+            // if (key == "eps")
+            // {
+            //     p.setFloat(key, static_cast<float>(flt_value));
+            // }
+            // else
+            // {
+            //     p.setDouble(key, flt_value);
+            // }
+            p.setFloat(key, static_cast<float>(flt_value));
             continue;
         }
         PyErr_Clear();
