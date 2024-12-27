@@ -68,7 +68,7 @@ enum FlannIndexType {
     LAST_VALUE_FLANN_INDEX_TYPE = FLANN_INDEX_TYPE_ALGORITHM
 };
 
-struct CV_EXPORTS IndexParams
+struct CV_EXPORTS_W IndexParams
 {
     IndexParams();
     ~IndexParams();
@@ -97,51 +97,51 @@ private:
     IndexParams& operator=(const IndexParams &); // assign disabled
 };
 
-struct CV_EXPORTS KDTreeIndexParams : public IndexParams
+struct CV_EXPORTS_W KDTreeIndexParams : public IndexParams
 {
     KDTreeIndexParams(int trees=4);
 };
 
-struct CV_EXPORTS LinearIndexParams : public IndexParams
+struct CV_EXPORTS_W LinearIndexParams : public IndexParams
 {
     LinearIndexParams();
 };
 
-struct CV_EXPORTS CompositeIndexParams : public IndexParams
+struct CV_EXPORTS_W CompositeIndexParams : public IndexParams
 {
     CompositeIndexParams(int trees = 4, int branching = 32, int iterations = 11,
                          cvflann::flann_centers_init_t centers_init = cvflann::FLANN_CENTERS_RANDOM, float cb_index = 0.2f );
 };
 
-struct CV_EXPORTS AutotunedIndexParams : public IndexParams
+struct CV_EXPORTS_W AutotunedIndexParams : public IndexParams
 {
     AutotunedIndexParams(float target_precision = 0.8f, float build_weight = 0.01f,
                          float memory_weight = 0, float sample_fraction = 0.1f);
 };
 
-struct CV_EXPORTS HierarchicalClusteringIndexParams : public IndexParams
+struct CV_EXPORTS_W HierarchicalClusteringIndexParams : public IndexParams
 {
     HierarchicalClusteringIndexParams(int branching = 32,
                       cvflann::flann_centers_init_t centers_init = cvflann::FLANN_CENTERS_RANDOM, int trees = 4, int leaf_size = 100 );
 };
 
-struct CV_EXPORTS KMeansIndexParams : public IndexParams
+struct CV_EXPORTS_W KMeansIndexParams : public IndexParams
 {
     KMeansIndexParams(int branching = 32, int iterations = 11,
                       cvflann::flann_centers_init_t centers_init = cvflann::FLANN_CENTERS_RANDOM, float cb_index = 0.2f );
 };
 
-struct CV_EXPORTS LshIndexParams : public IndexParams
+struct CV_EXPORTS_W LshIndexParams : public IndexParams
 {
     LshIndexParams(int table_number, int key_size, int multi_probe_level);
 };
 
-struct CV_EXPORTS SavedIndexParams : public IndexParams
+struct CV_EXPORTS_W SavedIndexParams : public IndexParams
 {
     SavedIndexParams(const String& filename);
 };
 
-struct CV_EXPORTS SearchParams : public IndexParams
+struct CV_EXPORTS_W SearchParams : public IndexParams
 {
     SearchParams( int checks, float eps, bool sorted, bool explore_all_trees );
     SearchParams( int checks = 32, float eps = 0, bool sorted = true );
